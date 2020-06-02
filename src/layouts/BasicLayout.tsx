@@ -21,6 +21,8 @@ import { getAuthorityFromRouter } from '@/utils/utils';
 // } from '@ant-design/icons';
 import logo from '../assets/logo.svg';
 
+console.log(process.env)
+
 const noMatch = (
   <Result
     status={403}

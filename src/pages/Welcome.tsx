@@ -52,9 +52,9 @@ export default (): React.ReactNode => (
         marginTop: 24,
       }}
     >
-      Want to add more pages? Please refer to{' '}
-      <a href="https://pro.ant.design/docs/block-cn" target="_blank" rel="noopener noreferrer">
-        use block
+      想了解更多详情，请跳转到
+      <a href="https://ehire.51job.com/" target="_blank" rel="noopener noreferrer">
+        网才！
       </a>
       。
     </p>

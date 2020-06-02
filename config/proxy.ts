@@ -5,7 +5,7 @@
 export default {
   dev: {
     '/api/': {
-      target: 'http://10.100.60.28/phalapi/public/',
+      target: 'http://www.superjy.cn/public/',
       changeOrigin: true,
       pathRewrite: { '^/api/': '' },
     },
@@ -16,12 +16,5 @@ export default {
       changeOrigin: true,
       pathRewrite: { '^': '' },
     },
-  },
-  pre: {
-    '/api/': {
-      target: 'your pre url',
-      changeOrigin: true,
-      pathRewrite: { '^': '' },
-    },
-  },
+  }
 };

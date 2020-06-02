@@ -2,7 +2,9 @@
 import { defineConfig } from 'umi';
 import defaultSettings from './defaultSettings';
 import proxy from './proxy';
+import { router } from './router'
 const { REACT_APP_ENV } = process.env;
+
 export default defineConfig({
   hash: true,
   antd: {},
@@ -22,86 +24,7 @@ export default defineConfig({
   targets: {
     ie: 11,
   },
-  // umi routes: https://umijs.org/docs/routing
-  routes: [
-    {
-      path: '/user',
-      component: '../layouts/UserLayout',
-      routes: [
-        {
-          name: 'login',
-          path: '/user/login',
-          component: './user/login',
-        },
-      ],
-    },
-    {
-      path: '/',
-      component: '../layouts/SecurityLayout',
-      routes: [
-        {
-          path: '/',
-          component: '../layouts/BasicLayout',
-          authority: ['admin', 'user'],
-          routes: [
-            {
-              path: '/',
-              redirect: '/welcome',
-            },
-            {
-              path: '/welcome',
-              name: 'welcome',
-              icon: 'FileOutlined',
-              component: './Welcome',
-            },
-            {
-              path: '/admin',
-              name: 'admin',
-              icon: 'crown',
-              component: './Admin',
-              authority: ['admin'],
-              routes: [
-                {
-                  path: '/admin/sub-page',
-                  name: 'sub-page',
-                  icon: 'smile',
-                  component: './Welcome',
-                  authority: ['admin'],
-                },
-              ],
-            },
-            {
-              name: '最新活动',
-              icon: 'CalendarOutlined',
-              path: '/ListActivityList',
-              component: './ListActivityList',
-            },
-            {
-              name: '最新banner',
-              icon: 'ProfileOutlined',
-              path: '/ListBannerList',
-              component: './ListBannerList',
-            },
-            {
-              name: '最新解决方案',
-              icon: 'LikeOutlined',
-              path: '/ListSolutionList',
-              component: './ListSolutionList',
-            },
-            {
-              component: './404',
-            },
-          ],
-        },
-        {
-          component: './404',
-        },
-      ],
-    },
-    {
-      component: './404',
-    },
-  ],
+  routes: router,
   // Theme for antd: https://ant.design/docs/react/customize-theme-cn
   theme: {
     // ...darkTheme,
